@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <!-- <div class="mb-3">
+        <label for="prdcat" class="form-label">category:</label>
+        <select class="form-select form-select-lg" name="cat" id="prdcat" [(ngModel)]="selectedcatID" (change)="filterproductsBycatID()" >
+        <option *ngFor="let cat of catlist" [value]="cat.id">{{cat.name}}</option>
+        </select>
+    </div> -->
+    <!-- <div class="text-secondary">
+        [To be Removed] for test:
+        {{selectedcatID}}
+        <button type="button" class="btn btn-primary" (click)="changecat()" >Change Category</button>
+        <br>
+        Order's Date: {{OrderDate | date: 'short'}}
+    </div> -->
+    <hr>
+    <table class="table">
+        <thead class="table-light">
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Av.Quntity</th>
+            <th>Price in USD</th>
+            <th>Price in EGP</th>
+            <th>count</th>
+            <th>Details</th>
+            <th>Add</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let prd of PrdListofcat, let i=index">
+
+                <td>{{i+1}}</td>
+                <td>{{prd.name}}</td>
+                <td><img LightBox="red" defaultcolore="gray" [src]="prd.imgURL" alt=""></td>
+                <!-- <td><img LightBox highLightColor="red" [src]="prd.imgURL" alt=""></td> -->
+                <td>{{prd.quantity}}</td>
+                <td>{{prd.price | currency :'ERU':'code'}}</td>
+                <td>{{prd.price |USDtoEGP|currency:'EGP':'code'}}</td>
+
+                <td> <input #itemsCount type="number" class="form-control"></td>
+                <td><button type="button" class="btn btn-primary" (click)="OpenprscatDetails(prd.id)">Details</button></td>  
+
+                <td><button type="button" class="btn btn-primary" (click)="buy(prd.price, itemsCount.value)">Add</button></td>  
+            
+            
+            </tr>
+        
+        </tbody>
+        </table>  
+        <!-- <hr>
+        <h3>Order Total brice :{{orderTotalPrice}}</h3> -->
+
+</body>
+</html>
+
+

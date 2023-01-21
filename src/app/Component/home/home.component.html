@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+</head>
+<body>
+    <img *ngIf="isImageshown" [src]="storeInfo.imgURL" alt="" class="img-fluid m-1">
+    <button type="button" class="btn btn-primary" (click)="toggleImage()">toggle image</button>
+    <h1>{{storeInfo.name}}</h1>
+    <h3>our Branches:</h3>
+    <ul>
+        <li *ngFor="let item of storeInfo.barnches">{{item}}</li>
+        
+    </ul>
+</body>
+</html>
